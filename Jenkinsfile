@@ -19,7 +19,7 @@ pipeline {
          sh "chmod +x  change.sh"
          sh "./change.sh ${currentBuild.number}"
            sshagent(['ssh-key']) {
-             sh "scp -o StrictHostKeyChecking=no newpod.yaml ec2-use@3.98.57.152:/home/ec2-user/"
+             sh "scp -o StrictHostKeyChecking=no newpod.yaml ec2-user@3.98.57.152:/home/ec2-user/"
              script {
                 try{
                    sh "ssh ec2-user@3.98.57.152 kubectl create -f ."
