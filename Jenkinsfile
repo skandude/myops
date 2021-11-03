@@ -22,10 +22,10 @@ pipeline {
              sh "scp -o StrictHostKeyChecking=no newpod.yaml ec2-user@3.96.155.172:/home/ec2-user/"
              script {
                 try{
-                   sh "ssh ec2-user@3.96.155.172 kubectl create -f ."
+                   sh "ssh ec2-user@3.96.155.172 kubectl create -f newpod.yaml"
                    }
                 catch(error){
-                    sh "ssh ec2-user@3.96.155.172 kubectl apply -f ."
+                    sh "ssh ec2-user@3.96.155.172 kubectl apply -f newpod.yaml"
                 }
 
            } 
